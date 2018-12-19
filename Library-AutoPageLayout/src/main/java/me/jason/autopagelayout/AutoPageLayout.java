@@ -1,4 +1,4 @@
-package me.jason.audopagelayout;
+package me.jason.autopagelayout;
 
 import android.app.Activity;
 import android.content.Context;

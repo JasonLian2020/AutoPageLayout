@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
@@ -24,80 +25,11 @@ dependencies {
     compileOnly rootProject.ext.dependencies["appcompat-v7"]
 }
 
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
-// This is the library version used when deploying the artifact
-version = "1.0.0"
-
-def siteUrl = 'https://github.com/tomUp/AutoPageLayout'      // 项目的主页
-def gitUrl = 'https://github.com/tomUp/AutoPageLayout.git'   // Git仓库的url
-group = "me.jason.autopagelayout"                            // Maven Group ID for the artifact，一般填你唯一的包名
-install {
-    repositories.mavenInstaller {
-        // This generates POM.xml with proper parameters
-        pom {
-            project {
-                packaging 'aar'
-                // Add your description here
-                name 'multi-format 1D/2D barcode image processing use zxing.'
-                url siteUrl
-                // Set your license
-                licenses {
-                    license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-                developers {
-                    developer {
-                        id 'you id'        //填写的一些基本信息
-                        name 'jason'
-                        email 'itlanguage@163.com'
-                    }
-                }
-                scm {
-                    connection gitUrl
-                    developerConnection gitUrl
-                    url siteUrl
-                }
-            }
-        }
-    }
-}
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-artifacts {
-    archives javadocJar
-    archives sourcesJar
-}
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-    configurations = ['archives']
-    pkg {
-        repo = "maven"
-        name = "AutoPageLayout"    //发布到JCenter上的项目名字
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        licenses = ["Apache-2.0"]
-        publish = true
-    }
-}
-javadoc { //jav doc采用utf-8编码否则会报“GBK的不可映射字符”错误
-    options {
-        encoding "UTF-8"
-        charSet 'UTF-8'
-    }
+publish {
+    userOrg = 'jasonlian' //bintray注册的用户名（不是邮箱）
+    groupId = 'me.jason.library'
+    artifactId = 'auto-page-layout' //项目名称
+    publishVersion = '1.0.0' //版本号
+    desc = '' //项目描述。可空。
+    website = '' //项目地址，一般填github地址。可空。
 }
