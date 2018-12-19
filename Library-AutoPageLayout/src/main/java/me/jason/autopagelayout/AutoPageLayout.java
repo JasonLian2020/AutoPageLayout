@@ -56,9 +56,6 @@ public class AutoPageLayout extends FrameLayout {
         void onShow(boolean isShow, View view);
     }
 
-    /**
-     * 初始化配置
-     */
     private void initPage() {
         // init parameter
         layoutInflater = LayoutInflater.from(builder.context);
