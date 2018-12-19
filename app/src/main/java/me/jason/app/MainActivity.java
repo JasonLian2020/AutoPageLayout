@@ -1,7 +1,9 @@
 package me.jason.app;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import me.jason.autopagelayout.R;
 
 public class MainActivity extends AppCompatActivity {
 
