@@ -15,11 +15,7 @@ import android.view.animation.Animation;
 import android.widget.FrameLayout;
 
 /**
- * Project Name:LiZhiWeiKe
- * Package Name:com.widget.dialog
- * Created by jason on 2018/11/1 15:03 .
- * <p>
- * Copyright (c) 2016—2017 https://www.lizhiweike.com all rights reserved.
+ * Created by jason on 2018/12/19 18:00 .
  */
 public class AutoPageLayout extends FrameLayout {
     /*-----------------------------------SHOW TYPE BEGIN-----------------------------------*/
