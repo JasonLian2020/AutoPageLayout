@@ -23,25 +23,10 @@ import android.widget.FrameLayout;
  */
 public class AutoPageLayout extends FrameLayout {
     /*-----------------------------------SHOW TYPE BEGIN-----------------------------------*/
-    /**
-     * 内容布局
-     */
     public static final int SHOW_TYPE_CONTENT = 0x1;
-    /**
-     * 空布局
-     */
     public static final int SHOW_TYPE_EMPTY = 0x2;
-    /**
-     * 加载中布局
-     */
     public static final int SHOW_TYPE_LOADING = 0x3;
-    /**
-     * 错误布局
-     */
     public static final int SHOW_TYPE_ERROR = 0x4;
-    /**
-     * 自定义布局
-     */
     public static final int SHOW_TYPE_CUSTOM = 0x5;
     /*-----------------------------------SHOW TYPE END-----------------------------------*/
 
