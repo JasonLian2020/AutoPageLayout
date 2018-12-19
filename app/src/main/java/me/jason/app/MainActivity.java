@@ -1,4 +1,4 @@
-package me.jason.autopagelayout;
+package me.jason.app;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
