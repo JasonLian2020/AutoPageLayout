@@ -75,9 +75,9 @@ public class AutoPageLayout extends FrameLayout {
      * 初始化配置
      */
     private void initPage() {
-        // 初始化参数
+        // init parameter
         layoutInflater = LayoutInflater.from(builder.context);
-        /*--------------------------核心代码 begin--------------------------*/
+        /*--------------------------core code begin--------------------------*/
         ViewGroup parentLayout = null;
         if (builder.targetView instanceof Activity) {
             parentLayout = ((Activity) builder.targetView).findViewById(android.R.id.content);
@@ -87,11 +87,11 @@ public class AutoPageLayout extends FrameLayout {
             parentLayout = (ViewGroup) ((View) builder.targetView).getParent();
         }
         if (parentLayout != null) {
-            // addView的索引位置
+            // addView index
             int index = 0;
-            // 旧内容布局
+            // old content layout
             View oldContentLayout;
-            // 子view个数
+            // child view count
             int childCount = parentLayout.getChildCount();
             if (builder.targetView instanceof View) {
                 oldContentLayout = (View) builder.targetView;
@@ -105,114 +105,99 @@ public class AutoPageLayout extends FrameLayout {
             } else {
                 oldContentLayout = parentLayout.getChildAt(0);
             }
-            // 1.记录下旧的内容布局
+            // 1.save old
             contentLayout = oldContentLayout;
-            // 2.移除PageLayout中所有子view
+            // 2.remove all views with AutoPageLayout
             removeAllViews();
-            // 3.移除父布局中旧内容布局
+            // 3.remove old content layout with parent layout
             parentLayout.removeView(contentLayout);
-            // 4.添加PageLayout到父布局
+            // 4.add AutoPageLayout to parent layout
             ViewGroup.LayoutParams layoutParams = contentLayout.getLayoutParams();
             parentLayout.addView(this, index, layoutParams);
-            // 5.添加内容布局到PageLayout
+            // 5.add old content layout to AutoPageLayout
             addView(contentLayout, 0, new FrameLayout.LayoutParams(-1, -1));
         }
-        /*--------------------------核心代码 end--------------------------*/
-        // 初始化其他布局：empty，loading，error，custom
+        /*--------------------------core code end--------------------------*/
+        // init other：empty，loading，error，custom
         initOtherLayout(parentLayout);
-        // 显示布局
+        // show layout
         if (builder.showType != -1) showView(builder.showType);
     }
 
     private void initOtherLayout(ViewGroup parentLayout) {
         if (parentLayout == null) return;
-        // 空布局
+        // empty layout
         if (builder.emptyLayoutId > 0) {
             emptyLayout = layoutInflater.inflate(builder.emptyLayoutId, this, false);
             addView(emptyLayout);
-            // 添加布局成功并且回调
+            //
             if (builder.emptyViewAddListener != null)
                 builder.emptyViewAddListener.onCreate(emptyLayout);
-            // 初始化隐藏并且回调
+            //
             emptyLayout.setVisibility(GONE);
             if (builder.emptyViewShowListener != null)
                 builder.emptyViewShowListener.onShow(false, emptyLayout);
         }
-        // 加载中布局
+        // loading layout
         if (builder.loadingLayoutId > 0) {
             loadingLayout = layoutInflater.inflate(builder.loadingLayoutId, this, false);
             addView(loadingLayout);
-            // 添加布局成功并且回调
+            //
             if (builder.loadingViewAddListener != null)
                 builder.loadingViewAddListener.onCreate(loadingLayout);
-            // 初始化隐藏并且回调
+            //
             loadingLayout.setVisibility(GONE);
             if (builder.loadingViewShowListener != null)
                 builder.loadingViewShowListener.onShow(false, loadingLayout);
         }
-        // 错误布局
+        // error layout
         if (builder.errorLayoutId > 0) {
             errorLayout = layoutInflater.inflate(builder.errorLayoutId, this, false);
             addView(errorLayout);
-            // 添加布局成功并且回调
+            //
             if (builder.errorViewAddListener != null)
                 builder.errorViewAddListener.onCreate(errorLayout);
-            // 初始化隐藏并且回调
+            //
             errorLayout.setVisibility(GONE);
             if (builder.errorViewShowListener != null)
                 builder.errorViewShowListener.onShow(false, errorLayout);
         }
-        // 自定义布局
+        // custom layout
         if (builder.customLayoutId > 0) {
             customLayout = layoutInflater.inflate(builder.customLayoutId, this, false);
             addView(customLayout);
-            // 添加布局成功并且回调
+            //
             if (builder.customViewAddListener != null)
                 builder.customViewAddListener.onCreate(customLayout);
-            // 初始化隐藏并且回调
+            //
             customLayout.setVisibility(GONE);
             if (builder.customViewShowListener != null)
                 builder.customViewShowListener.onShow(false, customLayout);
         }
     }
 
-    /**
-     * 显示内容布局
-     */
     public void showContent() {
         showView(SHOW_TYPE_CONTENT);
     }
 
-    /**
-     * 显示空布局
-     */
     public void showEmpty() {
         showView(SHOW_TYPE_EMPTY);
     }
 
-    /**
-     * 显示加载中布局
-     */
     public void showLoading() {
         showView(SHOW_TYPE_LOADING);
     }
 
-    /**
-     * 显示错误布局
-     */
     public void showError() {
         showView(SHOW_TYPE_ERROR);
     }
 
-    /**
-     * 显示自定义布局
-     */
     public void showCustom() {
         showView(SHOW_TYPE_CUSTOM);
     }
 
     /**
-     * 显示哪种页面
+     * show layout
      *
      * @param showType {@link AutoPageLayout#SHOW_TYPE_CONTENT}
      *                 、{@link AutoPageLayout#SHOW_TYPE_EMPTY}
@@ -231,11 +216,6 @@ public class AutoPageLayout extends FrameLayout {
     }
 
     private void changeView(int showType) {
-        /**
-         * 为什么一直显示contentLayout？
-         * 1.由于contentLayout添加在父布局的索引0位置，不需要隐藏，其他View肯定在它之上
-         * 2.并且contentLayout包含WebView的时候，当url加载很快，执行隐藏后显示会偶现空白页面
-         */
         showContentLayout(true);
         switch (showType) {
             case SHOW_TYPE_CONTENT:
@@ -317,19 +297,13 @@ public class AutoPageLayout extends FrameLayout {
         }
         if (tempLayout == null) return;
         if (isShow) {
-            // 标记
             tempLayout.setTag(TAG_VISIBLE);
-            // 已显示：不需要再执行动作和回调
             if (tempLayout.getAnimation() == null && tempLayout.getVisibility() == VISIBLE) return;
-            // 执行显示动作并且回调
             tempLayout.setVisibility(VISIBLE);
             if (tempListener != null) tempListener.onShow(true, tempLayout);
         } else {
-            // 标记
             tempLayout.setTag(TAG_GONE);
-            // 已隐藏：不需要再执行动作和回调
             if (tempLayout.getVisibility() == GONE) return;
-            // 执行隐藏动作并且回调
             viewHideAnimation(tempLayout);
             if (tempListener != null) tempListener.onShow(false, tempLayout);
         }
@@ -338,17 +312,12 @@ public class AutoPageLayout extends FrameLayout {
     private static final String TAG_VISIBLE = "VISIBLE";
     private static final String TAG_GONE = "GONE";
 
-    /**
-     * view显示动画
-     */
     private void viewShowAnimation(final View view) {
-        // 避免动画未结束，再次调用
         if (view.getAnimation() != null) return;
-        // 开始执行动画
         AlphaAnimation alpha = new AlphaAnimation(0.0f, 1.0f);
-        alpha.setDuration(100);// 动画持续时间，毫秒为单位
-        alpha.setRepeatCount(0);// 重复次数
-        alpha.setFillAfter(true);// 控件动画结束时是否保持动画最后的状态
+        alpha.setDuration(100);
+        alpha.setRepeatCount(0);
+        alpha.setFillAfter(true);
         alpha.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -371,17 +340,12 @@ public class AutoPageLayout extends FrameLayout {
         view.setVisibility(VISIBLE);
     }
 
-    /**
-     * view隐藏动画
-     */
     private void viewHideAnimation(final View view) {
-        // 避免动画未结束，再次调用
         if (view.getAnimation() != null) return;
-        // 开始执行动画
         AlphaAnimation alpha = new AlphaAnimation(1.0f, 0.0f);
-        alpha.setDuration(100);// 动画持续时间，毫秒为单位
-        alpha.setRepeatCount(0);// 重复次数
-        alpha.setFillAfter(true);// 控件动画结束时是否保持动画最后的状态
+        alpha.setDuration(100);
+        alpha.setRepeatCount(0);
+        alpha.setFillAfter(true);
         alpha.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -415,19 +379,19 @@ public class AutoPageLayout extends FrameLayout {
         protected int errorLayoutId = -1;
         @LayoutRes
         protected int customLayoutId = -1;
-        // 添加布局监听
+        // add listenr
         protected OnViewAddListener emptyViewAddListener;
         protected OnViewAddListener loadingViewAddListener;
         protected OnViewAddListener errorViewAddListener;
         protected OnViewAddListener customViewAddListener;
-        // 显示隐藏监听
+        // show or hide listenr
         protected OnViewShowListener emptyViewShowListener;
         protected OnViewShowListener loadingViewShowListener;
         protected OnViewShowListener errorViewShowListener;
         protected OnViewShowListener customViewShowListener;
 
         /**
-         * 设置基于Activity目标来切换
+         * base on Activity
          */
         public Builder setTarget(@NonNull Activity targetView) {
             this.targetView = targetView;
@@ -435,7 +399,7 @@ public class AutoPageLayout extends FrameLayout {
         }
 
         /**
-         * 设置基于Fragment目标来切换
+         * base on Fragment
          */
         public Builder setTarget(@NonNull Fragment targetView) {
             this.targetView = targetView;
@@ -443,111 +407,66 @@ public class AutoPageLayout extends FrameLayout {
         }
 
         /**
-         * 设置基于View目标来切换
+         * base on View
          */
         public Builder setTarget(@NonNull View targetView) {
             this.targetView = targetView;
             return this;
         }
 
-        /**
-         * 设置默认展示的页面
-         */
         public Builder showType(int showType) {
             this.showType = showType;
             return this;
         }
 
-        /**
-         * 设置空布局
-         *
-         * @param layoutResId       资源id
-         * @param onViewAddListener 布局添加的监听
-         */
         public Builder setEmptyLayout(@LayoutRes int layoutResId, OnViewAddListener onViewAddListener) {
             emptyLayoutId = layoutResId;
             emptyViewAddListener = onViewAddListener;
             return this;
         }
 
-        /**
-         * 设置加载中布局
-         *
-         * @param layoutResId       资源id
-         * @param onViewAddListener 布局添加的监听
-         */
         public Builder setLoadingLayout(@LayoutRes int layoutResId, OnViewAddListener onViewAddListener) {
             loadingLayoutId = layoutResId;
             loadingViewAddListener = onViewAddListener;
             return this;
         }
 
-        /**
-         * 设置错误布局
-         *
-         * @param layoutResId       资源id
-         * @param onViewAddListener 布局添加的监听
-         */
         public Builder setErrorLayout(@LayoutRes int layoutResId, OnViewAddListener onViewAddListener) {
             errorLayoutId = layoutResId;
             errorViewAddListener = onViewAddListener;
             return this;
         }
 
-        /**
-         * 设置自定义布局
-         *
-         * @param layoutResId       资源id
-         * @param onViewAddListener 布局添加的监听
-         */
         public Builder setCustomLayout(@LayoutRes int layoutResId, OnViewAddListener onViewAddListener) {
             customLayoutId = layoutResId;
             customViewAddListener = onViewAddListener;
             return this;
         }
 
-        /**
-         * 设置空布局显示隐藏监听
-         */
         public Builder setEmptyShowListener(OnViewShowListener onViewShowListener) {
             emptyViewShowListener = onViewShowListener;
             return this;
         }
 
-        /**
-         * 设置加载中布局显示隐藏监听
-         */
         public Builder setLoadingShowListener(OnViewShowListener onViewShowListener) {
             loadingViewShowListener = onViewShowListener;
             return this;
         }
 
-        /**
-         * 设置错误布局显示隐藏监听
-         */
         public Builder setErrorShowListener(OnViewShowListener onViewShowListener) {
             errorViewShowListener = onViewShowListener;
             return this;
         }
 
-        /**
-         * 设置自定义布局显示隐藏监听
-         */
         public Builder setCustomShowListener(OnViewShowListener onViewShowListener) {
             customViewShowListener = onViewShowListener;
             return this;
         }
 
-        /**
-         * 初始化一些样式
-         */
         public Builder(@NonNull Context context) {
             this.context = context;
         }
 
-        /**
-         * 初始化一些样式
-         */
         public Builder(@NonNull Fragment fragment) {
             this.context = fragment.getContext();
         }
