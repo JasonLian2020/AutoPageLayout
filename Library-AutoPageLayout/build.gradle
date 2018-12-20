@@ -26,10 +26,10 @@ dependencies {
 }
 
 publish {
-    userOrg = 'jasonlian' //bintray注册的用户名（不是邮箱）
+    userOrg = 'jasonlian'
     groupId = 'me.jason.library'
-    artifactId = 'auto-page-layout' //项目名称
-    publishVersion = '1.0.0' //版本号
-    desc = '' //项目描述。可空。
-    website = '' //项目地址，一般填github地址。可空。
+    artifactId = 'auto-page-layout'
+    publishVersion = '1.0.0'
+    desc = 'hi jason'
+    website = 'https://github.com/tomUp/AutoPageLayout'
 }
