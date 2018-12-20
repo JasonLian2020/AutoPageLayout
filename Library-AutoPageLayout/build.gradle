@@ -26,6 +26,7 @@ dependencies {
 }
 
 publish {
+    repoName = 'maven'// If not, the default is 'maven'
     userOrg = 'jasonlian'
     groupId = 'me.jason.library'
     artifactId = 'auto-page-layout'
