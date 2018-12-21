@@ -4,16 +4,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
 import me.jason.app.R;
+import me.jason.app.base.BaseActivity;
 
 /**
  * Project Name:AutoPageLayout
  * Package Name:me.jason.app.ui
  * Created by jason on 2018/12/20 15:16 .
  */
-public class SecondActivity extends AppCompatActivity {
+public class SecondActivity extends BaseActivity {
 
     public static void start(Activity activity) {
         Intent intent = new Intent(activity, SecondActivity.class);
@@ -21,8 +21,12 @@ public class SecondActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_first);
+    public int initView(@Nullable Bundle savedInstanceState) {
+        return R.layout.activity_second;
+    }
+
+    @Override
+    public void initData(@Nullable Bundle savedInstanceState) {
+
     }
 }
