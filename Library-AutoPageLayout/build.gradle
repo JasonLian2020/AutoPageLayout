@@ -31,6 +31,6 @@ publish {
     groupId = 'me.jason.library'
     artifactId = 'auto-page-layout'
     publishVersion = '1.0.1'
-    desc = 'hi jason'
+    desc = 'hello jason'
     website = 'https://github.com/tomUp/AutoPageLayout'
 }
