@@ -1,16 +1,28 @@
-
 language: android
-# Allows to install dependencies via apt-get when using Travis's new container-based infrastructure.
-sudo: false
-android:
-  components:
-    # Note that the tools section appears twice on purpose as it’s required to get the newest Android SDK tools.
-    - tools
-    - platform-tools
-    - tools
-    - build-tools-28.0.3
-    - android-28
-    - extra-android-m2repository
-
+jdk: oraclejdk8
 before_install:
 - yes | sdkmanager "platforms;android-28" # https://github.com/travis-ci/travis-ci/issues/8651
+
+env:
+  global:
+    - ANDROID_API_LEVEL=28
+    - ANDROID_BUILD_TOOLS_VERSION=28.0.3
+    - TRAVIS_SECURE_ENV_VARS=true
+
+android:
+  components:
+    # The BuildTools version used by your project
+    - tools
+    - platform-tools
+    - build-tools-$ANDROID_BUILD_TOOLS_VERSION
+    - extra-android-m2repository
+    - extra-google-android-support
+
+    # The SDK version used to compile your project
+    - android-$ANDROID_API_LEVEL
+  licenses:
+    - '.+'
+
+script:
+    - ./gradlew clean
+    - ./gradlew assembleDebug
