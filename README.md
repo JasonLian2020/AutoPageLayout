@@ -4,6 +4,9 @@
 
 # AutoPageLayout
 
+> 我们在开发过程中，会遇到很多需要切换页面（空页面、错误页面、加载页面）的情况，为此写了很多涉及切换页面逻辑的代码在项目中，这些逻辑代码可能会影响到主页面（内容页面），迭代中也会比较难维护。
+>
+> 主页面逻辑与这些页面逻辑不应该耦合在一起，需要写得更解耦，为此设计该库。
 
 ![Base Activity](https://github.com/tomUp/AutoPageLayout/blob/master/image/Base%20Activity.jpg?raw=true)
 
@@ -76,6 +79,14 @@ public class SecondFragment extends BaseFragment {
                 .build();
     }
 }
+```
+
+
+
+Base View
+
+```java
+
 ```
 
 
