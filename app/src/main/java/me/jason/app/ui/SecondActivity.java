@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentTransaction;
 
 import me.jason.app.R;
 import me.jason.app.base.BaseActivity;
+import me.jason.app.fragment.SecondFragment;
 
 /**
  * Project Name:AutoPageLayout
@@ -27,6 +29,8 @@ public class SecondActivity extends BaseActivity {
 
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
-
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.contentLayout, SecondFragment.newInstance());
+        ft.commitAllowingStateLoss();
     }
 }
