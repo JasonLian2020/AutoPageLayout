@@ -19,13 +19,6 @@ Base Activity
 
 ~~~java
 public class FirstActivity extends BaseActivity {
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        // init AutoPageLayout
-        initAutoPageLayout();
-    }
-
     private AutoPageLayout autoPageLayout;
 
     private void initAutoPageLayout() {
@@ -45,14 +38,40 @@ public class FirstActivity extends BaseActivity {
                 .showType(AutoPageLayout.SHOW_TYPE_LOADING)
                 .build();
     }
-
-    private void clickErrorLayout() {
-        showLoadingLayout();
-        // simulate network request
-        getHandler().postDelayed(() -> showContentLayout(), 2000);
-    }
 }
 ~~~
+
+
+
+Base Fragment
+
+- Must be called after onCreateView
+- ViewPager + Fragment ，You can't use **setTarget(Fragment)**
+
+```java
+public class SecondFragment extends BaseFragment {
+    private AutoPageLayout autoPageLayout;
+
+    // Must be called after onCreateView
+    private void initAutoPageLayout() {
+        autoPageLayout = new AutoPageLayout.Builder(this)
+                .setTarget(this)
+                .setLoadingLayout(R.layout.public_layout_loading, view -> {
+                    // view onCreate, do some initialization
+                })
+                .setEmptyLayout(R.layout.public_layout_empty, view -> {
+                    // view onCreate, do some initialization
+                    view.setOnClickListener(v -> clickErrorLayout());
+                })
+                .setErrorLayout(R.layout.public_layout_error, view -> {
+                    // view onCreate, do some initialization
+                    view.setOnClickListener(v -> clickErrorLayout());
+                })
+                .showType(AutoPageLayout.SHOW_TYPE_LOADING)
+                .build();
+    }
+}
+```
 
 
 
