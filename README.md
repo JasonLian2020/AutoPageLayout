@@ -86,7 +86,28 @@ public class SecondFragment extends BaseFragment {
 Base View
 
 ```java
+    @BindView(R.id.contentView)
+    TextView contentView;
 
+    private AutoPageLayout autoPageLayout;
+
+    private void initAutoPageLayout() {
+        autoPageLayout = new AutoPageLayout.Builder(this)
+                .setTarget(contentView)
+                .setLoadingLayout(R.layout.public_layout_loading, view -> {
+                    // view onCreate, do some initialization
+                })
+                .setEmptyLayout(R.layout.public_layout_empty, view -> {
+                    // view onCreate, do some initialization
+                    view.setOnClickListener(v -> clickErrorLayout());
+                })
+                .setErrorLayout(R.layout.public_layout_error, view -> {
+                    // view onCreate, do some initialization
+                    view.setOnClickListener(v -> clickErrorLayout());
+                })
+                .showType(AutoPageLayout.SHOW_TYPE_LOADING)
+                .build();
+    }
 ```
 
 
