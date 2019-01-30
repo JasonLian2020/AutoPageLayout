@@ -5,6 +5,10 @@
 # AutoPageLayout
 
 
+Base Activity
+![Base Activity](https://github.com/tomUp/AutoPageLayout/blob/master/Base%20Activity.jpg?raw=true)
+
+
 
 # Download
 
