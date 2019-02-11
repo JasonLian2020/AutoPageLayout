@@ -14,8 +14,6 @@ import me.jason.library.AutoPageLayout;
  * Project Name:AutoPageLayout
  * Package Name:me.jason.app.fragment
  * Created by jason on 2019/1/30 15:10 .
- * <p>
- * Copyright (c) 2016—2017 https://www.lizhiweike.com all rights reserved.
  */
 public class SecondFragment extends BaseFragment {
 
