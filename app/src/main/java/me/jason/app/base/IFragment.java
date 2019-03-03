@@ -11,8 +11,6 @@ import android.view.ViewGroup;
  * Project Name:AutoPageLayout
  * Package Name:me.jason.app.base
  * Created by jason on 2019/1/30 15:22 .
- * <p>
- * Copyright (c) 2016—2017 https://www.lizhiweike.com all rights reserved.
  */
 public interface IFragment {
     /**

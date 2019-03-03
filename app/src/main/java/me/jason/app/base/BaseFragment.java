@@ -19,8 +19,6 @@ import java.lang.ref.WeakReference;
  * Project Name:AutoPageLayout
  * Package Name:me.jason.app.base
  * Created by jason on 2019/1/30 15:14 .
- * <p>
- * Copyright (c) 2016—2017 https://www.lizhiweike.com all rights reserved.
  */
 public abstract class BaseFragment extends Fragment implements IFragment {
 
