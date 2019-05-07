@@ -1,4 +1,4 @@
-package me.jason.library;
+package me.jason.autopagelayout;
 
 import android.app.Activity;
 import android.content.Context;
