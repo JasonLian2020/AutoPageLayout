@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import me.jason.app.R;
 import me.jason.app.base.BaseFragment;
-import me.jason.library.AutoPageLayout;
+import me.jason.autopagelayout.AutoPageLayout;
 
 /**
  * Project Name:AutoPageLayout

@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 
 import me.jason.app.R;
 import me.jason.app.base.BaseActivity;
-import me.jason.library.AutoPageLayout;
+import me.jason.autopagelayout.AutoPageLayout;
 
 /**
  * Project Name:AutoPageLayout

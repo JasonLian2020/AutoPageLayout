@@ -9,7 +9,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import me.jason.app.R;
 import me.jason.app.base.BaseActivity;
-import me.jason.library.AutoPageLayout;
+import me.jason.autopagelayout.AutoPageLayout;
 
 /**
  * Project Name:AutoPageLayout
