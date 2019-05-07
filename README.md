@@ -18,7 +18,7 @@
 
 Get the latest artifact via gradle
 ```groovy
-implementation 'me.jason.library:auto-page-layout:1.0.1'
+implementation 'me.jason.library:auto-page-layout:1.0.2'
 ```
 
 # Usage
