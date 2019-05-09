@@ -33,6 +33,7 @@ public class AutoPageLayout extends FrameLayout {
     private View loadingLayout;
     private View errorLayout;
     private View customLayout;
+    private int currentShowType = SHOW_TYPE_CONTENT;
 
     public AutoPageLayout(@NonNull Builder builder) {
         super(builder.context);
@@ -154,6 +155,26 @@ public class AutoPageLayout extends FrameLayout {
         }
     }
 
+    public boolean isShowContent() {
+        return currentShowType == SHOW_TYPE_CONTENT;
+    }
+
+    public boolean isShowEmpty() {
+        return currentShowType == SHOW_TYPE_EMPTY;
+    }
+
+    public boolean isShowLoading() {
+        return currentShowType == SHOW_TYPE_LOADING;
+    }
+
+    public boolean isShowError() {
+        return currentShowType == SHOW_TYPE_ERROR;
+    }
+
+    public boolean isShowCustom() {
+        return currentShowType == SHOW_TYPE_CUSTOM;
+    }
+
     public void showContent() {
         showView(SHOW_TYPE_CONTENT);
     }
@@ -184,6 +205,7 @@ public class AutoPageLayout extends FrameLayout {
      *                 、{@link AutoPageLayout#SHOW_TYPE_CUSTOM}
      */
     private void showView(final int showType) {
+        currentShowType = showType;
         if (Looper.myLooper() == Looper.getMainLooper()) changeView(showType);
         else post(new Runnable() {
             @Override
