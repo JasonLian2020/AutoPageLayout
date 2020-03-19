@@ -18,7 +18,7 @@
 
 Get the latest artifact via gradle
 ```groovy
-implementation 'me.jason.library:auto-page-layout:1.0.2'
+implementation 'me.jason.library:auto-page-layout:1.1.0'
 ```
 
 # Usage
@@ -116,6 +116,12 @@ See more，[Demo](https://github.com/tomUp/AutoPageLayout/tree/master/app)
 
 
 
+# ChangeLog
+
+See more，[ChangeLog](https://github.com/tomUp/AutoPageLayout/releases)
+
+
+
 # Interface Explain
 
 AutoPageLayout.Builder
@@ -140,13 +146,18 @@ AutoPageLayout.Builder
 
 AutoPageLayout
 
-|    方法名     |      备注      |
-| :-----------: | :------------: |
-| showContent() |  显示内容布局  |
-|  showEmpty()  |   显示空布局   |
-| showLoading() | 显示加载中布局 |
-|  showError()  |  显示错误布局  |
-| showCustom()  | 显示自定义布局 |
+|     方法名      |            备注            |
+| :-------------: | :------------------------: |
+|  showContent()  |        显示内容布局        |
+|   showEmpty()   |         显示空布局         |
+|  showLoading()  |       显示加载中布局       |
+|   showError()   |        显示错误布局        |
+|  showCustom()   |       显示自定义布局       |
+| isShowContent() |  判断当前显示是否内容布局  |
+|  isShowEmpty()  |   判断当前显示是否空布局   |
+| isShowLoading() | 判断当前显示是否加载中布局 |
+|  isShowError()  |  判断当前显示是否错误布局  |
+| isShowCustom()  | 判断当前显示是否自定义布局 |
 
 
 
