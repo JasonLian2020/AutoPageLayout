@@ -19,7 +19,7 @@ ext {
             "appcompat-v7"        : "androidx.appcompat:appcompat:${version["androidXSdkVersion"]}",
             "constraint-layout"   : "androidx.constraintlayout:constraintlayout:${version["constraintLayoutSdkVersion"]}",
             //view
-            "auto-page-Layout"    : "me.jason.library:auto-page-layout:1.0.3",
+            "auto-page-Layout"    : "me.jason.library:auto-page-layout:1.1.0",
             "butterknife"         : "com.jakewharton:butterknife:${version["butterknifeSdkVersion"]}",
             "butterknife-compiler": "com.jakewharton:butterknife-compiler:${version["butterknifeSdkVersion"]}",
     ]
