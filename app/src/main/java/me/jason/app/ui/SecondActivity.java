@@ -3,8 +3,9 @@ package me.jason.app.ui;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentTransaction;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentTransaction;
 
 import me.jason.app.R;
 import me.jason.app.base.BaseActivity;

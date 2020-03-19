@@ -33,8 +33,7 @@ dependencies {
     implementation rootProject.ext.dependencies["auto-page-Layout"]
     //view
     implementation rootProject.ext.dependencies["butterknife"]
-    annotationProcessor(rootProject.ext.dependencies["butterknife-compiler"]) {
-        exclude module: 'support-annotations'
-    }
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    //kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
