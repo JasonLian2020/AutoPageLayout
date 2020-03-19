@@ -8,12 +8,11 @@ buildscript {
         jcenter()
         mavenCentral()
         maven { url 'https://novoda.bintray.com/snapshots' }
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.0'
         classpath 'com.novoda:bintray-release:0.9'
-        classpath 'com.jakewharton:butterknife-gradle-plugin:9.0.0-SNAPSHOT'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:10.0.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -27,7 +26,6 @@ allprojects {
         jcenter()
         mavenCentral()
         maven { url 'https://novoda.bintray.com/snapshots' }
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     }
 
     gradle.projectsEvaluated {
