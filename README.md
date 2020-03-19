@@ -14,14 +14,14 @@
 
 ![Base View](https://github.com/tomUp/AutoPageLayout/blob/master/image/Base%20View.jpg?raw=true)
 
-# Download
+## Download
 
 Get the latest artifact via gradle
 ```groovy
 implementation 'me.jason.library:auto-page-layout:1.1.0'
 ```
 
-# Usage
+## Usage
 
 Base Activity
 
@@ -116,13 +116,13 @@ See more，[Demo](https://github.com/tomUp/AutoPageLayout/tree/master/app)
 
 
 
-# ChangeLog
+## ChangeLog
 
 See more，[ChangeLog](https://github.com/tomUp/AutoPageLayout/releases)
 
 
 
-# Interface Explain
+## Interface Explain
 
 AutoPageLayout.Builder
 
@@ -161,4 +161,4 @@ AutoPageLayout
 
 
 
-# Author
+## Author
