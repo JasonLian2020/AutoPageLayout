@@ -1,6 +1,6 @@
 [![Download](https://img.shields.io/badge/Download-AutoPageLayout-brightgreen.svg?style=flat)](https://bintray.com/jasonlian/maven/auto-page-layout)
 [![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16)
-[![Build Status](https://www.travis-ci.org/tomUp/AutoPageLayout.svg?branch=master)](https://www.travis-ci.org/tomUp/AutoPageLayout)
+[![Build Status](https://www.travis-ci.org/JasonLian2020/AutoPageLayout.svg?branch=master)](https://www.travis-ci.org/JasonLian2020/AutoPageLayout)
 
 # AutoPageLayout
 
@@ -8,11 +8,11 @@
 >
 > 主页面逻辑与这些页面逻辑不应该耦合在一起，需要写得更解耦，为此设计该库。
 
-![Base Activity](https://github.com/tomUp/AutoPageLayout/blob/master/image/Base%20Activity.jpg?raw=true)
+![Base Activity](https://github.com/JasonLian2020/AutoPageLayout/blob/master/image/Base%20Activity.jpg?raw=true)
 
-![Base Fragment](https://github.com/tomUp/AutoPageLayout/blob/master/image/Base%20Fragment.jpg?raw=true)
+![Base Fragment](https://github.com/JasonLian2020/AutoPageLayout/blob/master/image/Base%20Fragment.jpg?raw=true)
 
-![Base View](https://github.com/tomUp/AutoPageLayout/blob/master/image/Base%20View.jpg?raw=true)
+![Base View](https://github.com/JasonLian2020/AutoPageLayout/blob/master/image/Base%20View.jpg?raw=true)
 
 ## Download
 
@@ -112,13 +112,13 @@ Base View
 
 
 
-See more，[Demo](https://github.com/tomUp/AutoPageLayout/tree/master/app)
+See more，[Demo](https://github.com/JasonLian2020/AutoPageLayout/tree/master/app)
 
 
 
 ## ChangeLog
 
-See more，[ChangeLog](https://github.com/tomUp/AutoPageLayout/releases)
+See more，[ChangeLog](https://github.com/JasonLian2020/AutoPageLayout/releases)
 
 
 
