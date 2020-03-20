@@ -35,5 +35,5 @@ publish {
     artifactId = 'auto-page-layout'
     publishVersion = '1.1.0'
     desc = 'hello jason'
-    website = 'https://github.com/tomUp/AutoPageLayout'
+    website = 'https://github.com/JasonLian2020/AutoPageLayout'
 }
